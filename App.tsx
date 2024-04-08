@@ -25,36 +25,43 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import WaterHome from './screens/WaterHome';
+import Automatic from './screens/Automatic';
+import Manual from './screens/Manual';
+import History from './screens/History';
+import Navigation from './components/Navigation';
+import NavBar from './components/NavBar';
+import Command from './components/Command';
+import Schedule from './screens/Schedule';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+// function Section({children, title}: SectionProps): React.JSX.Element {
+//   const isDarkMode = useColorScheme() === 'dark';
+//   return (
+//     <View style={styles.sectionContainer}>
+//       <Text
+//         style={[
+//           styles.sectionTitle,
+//           {
+//             color: isDarkMode ? Colors.white : Colors.black,
+//           },
+//         ]}>
+//         {title}
+//       </Text>
+//       <Text
+//         style={[
+//           styles.sectionDescription,
+//           {
+//             color: isDarkMode ? Colors.light : Colors.dark,
+//           },
+//         ]}>
+//         {children}
+//       </Text>
+//     </View>
+//   );
+// }
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -64,7 +71,13 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <WaterHome></WaterHome>
+    // <Command></Command>
+    // <Automatic> </Automatic>
+    // <Manual></Manual>
+    // <History></History>
+    <Navigation></Navigation>
+    // <NavBar></NavBar>
+    // <Schedule></Schedule>
     // <SafeAreaView style={backgroundStyle}>
     //   <StatusBar
     //     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
