@@ -52,12 +52,14 @@ export default function setHumid() {
             
             if (!response.ok) {
                 // Alert.alert(response.status)
-                Alert.alert("error")
-                throw new Error(response.status)
+                const errorResponse = await response.json()
+                const message = errorResponse.message
+                Alert.alert("Lỗi: " + message)
+                throw new Error(message)
             }
             navigation.navigate("Schedule")
         } catch (error) {
-            Alert.alert(error)
+            // Alert.alert(error)
         }
     }
     return <View>
@@ -73,7 +75,7 @@ export default function setHumid() {
             </View>
             <Slider style={styles.slider} minimumValue={0} maximumValue={100} step={1} thumbTintColor="blue" value={humid} onValueChange={onSliderChange}></Slider>
             <TouchableOpacity style={styles.setHour} onPress={debounce(popUp, 1000)}>
-                <Text style={styles.label}>Chọn giờ:      {hour.toLocaleTimeString()} </Text>
+                <Text style={styles.label}>Chọn giờ:      {String(hour.getHours()).padStart(2, '0')}:{String(hour.getMinutes()).padStart(2, '0')}:{String(hour.getSeconds()).padStart(2, '0')} </Text>
                 
                 {showTime && <RNDateTimePicker is24Hour={true}  display="clock" mode="time" value={hour}  onChange={debounce(onHourChange, 1000)}></RNDateTimePicker>}
 
@@ -91,10 +93,11 @@ export default function setHumid() {
                 <Picker.Item label="Mỗi 2 ngày" value={2} />
                 <Picker.Item label="Hằng tuần" value={3} />
             </Picker>
-            <TouchableOpacity style={styles.buttonOpacity} onPress={debounce(async () => await onSaveClick(), 1000)}>
-                <Text style={styles.buttonText} >Lưu</Text>
-            </TouchableOpacity>
+            
         </View>
+        <TouchableOpacity style={styles.buttonOpacity} onPress={debounce(async () => await onSaveClick(), 1000)}>
+            <Text style={styles.buttonText} >Lưu</Text>
+        </TouchableOpacity>
     </View>
     
 }
@@ -103,8 +106,8 @@ const styles = StyleSheet.create({
         
         borderRadius: 10, 
         marginLeft: 31,
-        marginTop: 50,
-        width: 347,
+        marginTop: 10,
+        width: '80%',
         // height: 88,
         backgroundColor: '#fffff', // Màu nền của View
         borderWidth: 1, // Độ dày của viền (tùy chọn)
@@ -114,42 +117,42 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         textAlign: 'center',
         padding: 10,
-        fontSize: 30
+        fontSize: 20
     },
     rectangle: {
         
-        marginLeft: 32,
-        marginTop: 20,
-        width: 344,
-        height: 470,
+        marginLeft: 31,
+        marginTop: 10,
+        width: '80%',
+        height: '54%',
         backgroundColor: '#1D3133', // Màu nền của View
         borderRadius: 10, // Bo góc của View (tùy chọn)
-        overflow: 'hidden', // Đảm bảo nội dung không vượt ra khỏi View
+        // overflow: 'hidden', // Đảm bảo nội dung không vượt ra khỏi View
     },
     slider:{
         width: '100%', 
-        height: 30,
+        height: 18,
         
     },
     sliderTitle:{
         flexDirection: 'row',
-        
-        marginVertical: 30,
+        marginBottom: 20,
+        marginTop: 10,
     },
     humid:{
         marginLeft: 20,
         color: "white",
-        fontSize: 25,
+        fontSize: 18,
     },
     humidValue:{
-        marginLeft: 150,
+        marginLeft: '50%',
         color: "white",
-        fontSize: 25,
+        fontSize: 18,
     },
     setHour:{
         flexDirection: "row",
         marginHorizontal: 20,
-        marginTop: 40,
+        paddingVertical: 10,
         color: "white",
         fontSize: 18,
         borderRadius: 5,
@@ -157,45 +160,47 @@ const styles = StyleSheet.create({
     },
     label:{
         marginLeft: 10,
-        marginVertical: 20,
+        marginTop: 10,
         color: "white",
-        fontSize: 24,
+        fontSize: 18,
     },
     repeatLabel:{
         marginLeft: 20,
-        marginVertical: 10,
-        color: "white",
-        fontSize: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        // color: "white",
+        fontSize: 18,
     },
     picker:{
         
-        width: '90%',
+        // width: '90%',
         justifyContent: 'center',
         textAlign: 'center',
         borderWidth: 1,
         borderRadius: 5,
         padding: 10,
-        marginVertical: 20,
+        // marginVertical: 20,
         marginHorizontal: 20,
         color: "black",
         backgroundColor: 'white',
-        fontSize: 24,
+        fontSize: 16,
     },
     buttonOpacity: {
 
-        width: '100%',
+        
         alignItems: 'center',
         width: '80%',
-        height: 60,
+        // height: 60,
         marginTop: 10,
         marginLeft: 30,
         textAlign: "center",
-        padding: 15, // Khoảng cách giữa các dòng
+        // alignSelf: 'center',
+        padding: 10, // Khoảng cách giữa các dòng
         backgroundColor: '#8356D1',
         
     },
     buttonText: {
-        fontSize: 20,
+        fontSize: 15,
         color: "#FFFFFF",
     },
 });

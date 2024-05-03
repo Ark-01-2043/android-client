@@ -186,7 +186,7 @@ export default function History(params) {
             style={{
                 // backgroundColor: 'white',
                 // marginLeft: 10,
-                marginTop: 10,
+                // marginTop: 10,
                 flexDirection: 'row',
                 // padding: 10,
                 // borderRadius: 20,
@@ -198,9 +198,9 @@ export default function History(params) {
         </View>
         <LineChart
             data={data}
-            width={420}
+            width={400}
             height={220}
-            style={{marginTop: 10, alignContent: 'center'}}
+            style={{marginTop: 0, alignContent: 'center'}}
             chartConfig={{
             backgroundColor: '#FFF',
             backgroundGradientFrom: '#FFF',
@@ -209,7 +209,7 @@ export default function History(params) {
             color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
             style: {
                 borderRadius: 16,
-                marginTop: 20,
+                // marginTop: 20,
             },
             }}
         />
@@ -219,14 +219,14 @@ export default function History(params) {
         <ScrollView style={styles.rectangle}>
             <View style={styles.searchBar} >
                 <TouchableOpacity style={{padding: 10, backgroundColor: 'white'}} onPress={debounce(onshowFromDate, 1000)}>
-                    <Text style={{color: 'black'}}>Từ ngày: {toDateString(fromDate)} </Text>
+                    <Text style={{color: 'black', fontSize: 12}}>Từ ngày: {toDateString(fromDate)} </Text>
                     
                     
 
                 </TouchableOpacity>
                 {showFromDate && <RNDateTimePicker is24Hour={true}  display="calendar" mode="date" value={fromDate} onChange={debounce(onFromDateChange, 1000)}></RNDateTimePicker>}
                 <TouchableOpacity onPress={debounce(onshowToDate, 1000)} style={{padding: 10, backgroundColor: 'white', marginLeft: 10}}>
-                    <Text style={{color: 'black'}}>Đến ngày: {toDateString(toDate)} </Text>
+                    <Text style={{color: 'black', fontSize: 12}}>Đến ngày: {toDateString(toDate)} </Text>
                     
                     
 
@@ -260,8 +260,8 @@ const styles = StyleSheet.create({
         borderRadius: 10, 
         justifyContent: 'center',
         marginLeft: 31,
-        marginTop: 40,
-        width: 347,
+        // marginTop: 40,
+        width: '80%',
         // height: 88,
         backgroundColor: '#fffff', // Màu nền của View
         borderWidth: 1, // Độ dày của viền (tùy chọn)
@@ -271,14 +271,14 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         textAlign: 'center',
         padding: 10,
-        fontSize: 30
+        fontSize: 18
     },
     farmer: {
         justifyContent: 'center',
         alignItems: 'flex-start',
         'textAlign': 'center',
         borderBottomWidth: 1,
-        // width: '80%',
+        width: '100%',
         // height: 100,
         // marginLeft: 40,
         marginTop: 10,
@@ -304,8 +304,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         textAlign: 'left',
         // marginLeft: 10,
-        marginTop: 15,
-        width: '90%',
+        marginTop: 0,
+        width: '80%',
         padding: 5, 
         borderRadius: 5,
         fontSize: 15,
@@ -315,8 +315,8 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         marginLeft: 32,
         marginTop: 10,
-        width: 344,
-        height: 100,
+        width: '80%',
+        height: '40%',
         backgroundColor: '#1D3133', 
         borderRadius: 10, 
         overflow: 'scroll', 

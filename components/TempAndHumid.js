@@ -54,10 +54,10 @@ export default function TempAndHumid(params) {
         
         <View style={{flexDirection: 'row'}}>
             <Text style={styles.temp}>{TempAverage}℃</Text>
-            <View style={{marginLeft: 95, marginTop: 35}}>
+            <View style={{marginLeft: 80, marginTop: 35}}>
                 <CircularProgress
                     
-                    radius={55}
+                    radius={45}
                     value={HumAverage}
                     textColor='#222'
                     fontSize={20}
@@ -84,31 +84,27 @@ const data = {
 const styles = StyleSheet.create({
     firstRow: {
         marginTop: 30, 
-        flexDirection: 'row',
-        
-        
+        flexDirection: 'row',        
     },
     text: {
-        marginLeft: 30,
+        marginLeft: 20,
         
         width: 115,
-        height: 42,
         textAlignVertical: 'center',
         textAlign: 'center', // Để canh giữa theo chiều ngang
-        lineHeight: 42, // Độ cao của dòng văn bản để canh giữa theo chiều dọc
+        lineHeight: 30, // Độ cao của dòng văn bản để canh giữa theo chiều dọc
         fontFamily: 'Roboto',
-        fontSize: 30,
+        fontSize: 20,
         color: 'white',
     },
     humidity: {
-        marginLeft: 70,
+        marginLeft: 50,
         width: 142,
-        height: 42,
         textAlignVertical: 'center',
         textAlign: 'center', // Để canh giữa theo chiều ngang
-        lineHeight: 42, // Độ cao của dòng văn bản để canh giữa theo chiều dọc
+        lineHeight: 30, // Độ cao của dòng văn bản để canh giữa theo chiều dọc
         fontFamily: 'Roboto',
-        fontSize: 30,
+        fontSize: 20,
         color: 'white',
         
     },
@@ -117,7 +113,7 @@ const styles = StyleSheet.create({
         height: 70,
         marginLeft: 35,
         marginTop: 30,
-        fontSize: 50,
+        fontSize: 40,
         backgroundColor: 'transparent',
         color: 'white',
     },

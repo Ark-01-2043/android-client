@@ -112,7 +112,7 @@ export default function Schedule() {
         <TouchableOpacity
           style={{
             backgroundColor: 'white',
-            marginLeft: 300,
+            marginLeft: '65%',
             padding: 15,
             borderRadius: 20,
           }}

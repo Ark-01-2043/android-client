@@ -3,7 +3,7 @@ import TempAndHumid from "../components/TempAndHumid";
 import AutoWater from "../components/AutoWater";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 export default function Automatic(params) {
-    return <ScrollView style={{backgroundColor: '#244542'}}>
+    return <View style={{backgroundColor: '#244542'}}>
         {/* <TempAndHumid> </TempAndHumid> */}
         <View style={{
             width: '90%',
@@ -24,11 +24,11 @@ export default function Automatic(params) {
                 // padding: 10,
                 // borderRadius: 20,
             }}
-            onPress={() => navigation.navigate("WaterHome")}>
+            onPress={() => navigation.navigate("Schedule")}>
             <Icon name="angle-left" size={20} styles={{padding: 10}}>Back</Icon>
             {/* <Text styles={{marginTop: 15}}>Back</Text> */}
             </TouchableOpacity>
         </View>
         <AutoWater> </AutoWater>
-    </ScrollView>
+    </View>
 }

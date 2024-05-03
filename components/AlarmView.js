@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   rightInnerContainer: {
     margin: 5,
-    marginLeft: 110,
+    marginLeft: 40,
     flex: 1,
     flexDirection: "row",
     alignItems: 'flex-end',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   clock: {
     color: 'white',
-    fontSize: 35,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   title: {

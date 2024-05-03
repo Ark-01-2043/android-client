@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
     rectangle: {
         alignItems: 'center',
         marginLeft: 32,
-        marginTop: 100,
-        width: 344,
-        height: 470,
+        marginTop: 30,
+        width: "80%",
+        padding: 10,
+        paddingBottom: 20,
         backgroundColor: '#1D3133', // Màu nền của View
         borderRadius: 10, // Bo góc của View (tùy chọn)
-        overflow: 'hidden', // Đảm bảo nội dung không vượt ra khỏi View
+        
     },
     buttonOpacity: {
         alignItems: 'center',
